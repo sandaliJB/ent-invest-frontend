@@ -76,7 +76,7 @@ const Invester: React.FC = () => {
                         Contact
                       </a>
                       <a
-                        href="/profile"
+                        href="/investProfile"
                         className="btn btn-outline-primary mx-2"
                         style={{ borderRadius: "20px" }}
                       >
