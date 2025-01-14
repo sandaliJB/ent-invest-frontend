@@ -6,6 +6,8 @@ import SignUp from './component/auth/SignUp';
 import Entp from './component/web/Entp';
 import EntpProfile from './component/web/EntpProfile';
 import Invester from './component/web/Invester';
+import InvestProfile from './component/web/InvestProfile';
+import Funds from './component/web/Funds';
 
 function App() {
 
@@ -19,6 +21,8 @@ function App() {
           <Route path="/entrepreneur" element={<Entp />} />
           <Route path="/profile" element={<EntpProfile />} />
           <Route path="/invester" element={<Invester />} />
+          <Route path="/investProfile" element={<InvestProfile />} />
+          <Route path="/funds" element={<Funds />} />
         </Routes>
       </Router>
     </div>

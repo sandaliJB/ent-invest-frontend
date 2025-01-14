@@ -83,19 +83,6 @@ const TopNav: React.FC = () => {
                   </li>
                   <li className="nav-item">
                     <NavLink
-                      to="/opportunities"
-                      className="nav-link"
-                      style={({ isActive }) =>
-                        isActive
-                          ? { color: "#0062cc", fontWeight: "bold" }
-                          : { color: "inherit" }
-                      }
-                    >
-                      Opportunities
-                    </NavLink>
-                  </li>
-                  <li className="nav-item">
-                    <NavLink
                       to="/funds"
                       className="nav-link"
                       style={({ isActive }) =>
