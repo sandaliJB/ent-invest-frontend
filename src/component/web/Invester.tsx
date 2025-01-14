@@ -24,18 +24,32 @@ const entrepreneurs = [
     fundingRequired: "$750,000",
     description: "Building a sustainable fashion brand.",
   },
+  {
+    id: 3,
+    name: "Alice Johnson",
+    industry: "Retail",
+    fundingRequired: "$750,000",
+    description: "Building a sustainable fashion brand.",
+  },
+  {
+    id: 3,
+    name: "Alice Johnson",
+    industry: "Retail",
+    fundingRequired: "$750,000",
+    description: "Building a sustainable fashion brand.",
+  },
   // Add more entrepreneurs as needed
 ];
 
-const Entp: React.FC = () => {
+const Invester: React.FC = () => {
   return (
     <div className="hero_area">
-        <TopNav />
+      <TopNav />
       <div className="container-fluid bg-light py-5">
-        <h2 className="text-center mb-5">Entrepreneurs</h2>
+        <h2 className="text-center mb-5">Investers</h2>
         <div className="row g-4">
           {entrepreneurs.map((entrepreneur) => (
-            <div className="col-lg-4 col-md-6" key={entrepreneur.id}>
+            <div className="col-lg-4 col-md-6 my-3" key={entrepreneur.id}>
               <div className="card h-100 shadow-sm">
                 <div className="row">
                   <div className="col-4">
@@ -56,7 +70,6 @@ const Entp: React.FC = () => {
                     </p>
                     <div className="mt-auto">
                       <a
-                        
                         className="btn btn-primary me-2"
                         style={{ borderRadius: "20px" }}
                       >
@@ -82,4 +95,4 @@ const Entp: React.FC = () => {
   );
 };
 
-export default Entp;
+export default Invester;
