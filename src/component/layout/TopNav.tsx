@@ -10,11 +10,11 @@ const TopNav: React.FC = () => {
             <div className="contact_nav">
               <a href="">
                 <i className="fa fa-phone" aria-hidden="true"></i>
-                <span>Call : +01 123455678990</span>
+                <span>Call : +094 778502369</span>
               </a>
               <a href="">
                 <i className="fa fa-envelope" aria-hidden="true"></i>
-                <span>Email : demo@gmail.com</span>
+                <span>Email : seedlink@gmail.com</span>
               </a>
             </div>
           </div>
@@ -23,7 +23,7 @@ const TopNav: React.FC = () => {
           <div className="container-fluid">
             <nav className="navbar navbar-expand-lg custom_nav-container ">
               <a className="navbar-brand" href="index.html">
-                <span>Inance</span>
+                <span>SeedLink</span>
               </a>
 
               <button
