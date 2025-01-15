@@ -8,12 +8,18 @@ const TopNav: React.FC = () => {
         <div className="header_top">
           <div className="container-fluid">
             <div className="contact_nav">
-              <a href="">
-                <i className="fa fa-phone" aria-hidden="true"></i>
+              <a href="" className="d-flex align-items-center contact-link">
+                <i
+                  className="fa fa-phone text-success mx-2"
+                  aria-hidden="true"
+                ></i>
                 <span>Call : +094 778502369</span>
               </a>
-              <a href="">
-                <i className="fa fa-envelope" aria-hidden="true"></i>
+              <a href="" className="d-flex align-items-center contact-link">
+                <i
+                  className="fa fa-envelope text-success mx-2"
+                  aria-hidden="true"
+                ></i>
                 <span>Email : seedlink@gmail.com</span>
               </a>
             </div>
@@ -23,7 +29,13 @@ const TopNav: React.FC = () => {
           <div className="container-fluid">
             <nav className="navbar navbar-expand-lg custom_nav-container ">
               <a className="navbar-brand" href="index.html">
-                <span>SeedLink</span>
+                <span>
+                  <img
+                    src="./images/image.png"
+                    alt="Logo"
+                    style={{ width: "130px", height: "130px" }}
+                  />
+                </span>
               </a>
 
               <button
