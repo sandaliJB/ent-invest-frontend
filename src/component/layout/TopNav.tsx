@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const TopNav: React.FC = () => {
   return (
-    <div>
+    <div style={{backgroundColor: "#4747472c"}}>
       <header className="header_section">
         <div className="header_top">
           <div className="container-fluid">
@@ -33,7 +33,7 @@ const TopNav: React.FC = () => {
                   <img
                     src="./images/image.png"
                     alt="Logo"
-                    style={{ width: "130px", height: "130px" }}
+                    style={{ width: "90px", height: "90px" }}
                   />
                 </span>
               </a>
@@ -60,8 +60,8 @@ const TopNav: React.FC = () => {
                       className="nav-link"
                       style={({ isActive }) =>
                         isActive
-                          ? { color: "#0062cc", fontWeight: "bold" }
-                          : { color: "inherit" }
+                          ? { color: "white", fontWeight: "bold" }
+                          : { color: "white" }
                       }
                     >
                       Home
@@ -73,8 +73,8 @@ const TopNav: React.FC = () => {
                       className="nav-link"
                       style={({ isActive }) =>
                         isActive
-                          ? { color: "#0062cc", fontWeight: "bold" }
-                          : { color: "inherit" }
+                          ? { color: "white", fontWeight: "bold" }
+                          : { color: "white" }
                       }
                     >
                       Entrepreneurs
@@ -86,8 +86,8 @@ const TopNav: React.FC = () => {
                       className="nav-link"
                       style={({ isActive }) =>
                         isActive
-                          ? { color: "#0062cc", fontWeight: "bold" }
-                          : { color: "inherit" }
+                          ? { color: "white", fontWeight: "bold" }
+                          : { color: "white" }
                       }
                     >
                       Investors
@@ -99,8 +99,8 @@ const TopNav: React.FC = () => {
                       className="nav-link"
                       style={({ isActive }) =>
                         isActive
-                          ? { color: "#0062cc", fontWeight: "bold" }
-                          : { color: "inherit" }
+                          ? { color: "white", fontWeight: "bold" }
+                          : { color: "white" }
                       }
                     >
                       Funds
