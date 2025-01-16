@@ -2,7 +2,7 @@ import React from "react";
 
 const Starter: React.FC = () => {
   return (
-    <div>
+    <div style={{backgroundColor: "white"}}>
       <section className="slider_section ">
         <div className="container ">
           <div className="row">
@@ -21,19 +21,19 @@ const Starter: React.FC = () => {
                 At SeedLink, we believe in connecting visions, enabling growth, and creating a brighter future together.
                 
                 </p>
-                <a href="">Get Start</a>
+                <a href="/login">Get Started</a>
               </div>
             </div>
-            <div className="col-md-6">
+            <div className="col-md-6 my-2 py-2">
               <div className="img-box">
-                <img src="images/slider-img.png" alt="" />
+                <img src="images/invester1.jpg" alt="" />
               </div>
             </div>
           </div>
         </div>
       </section>
       <section className="feature_section">
-        <div className="container">
+        <div className="container mt-3">
           <div className="feature_container">
             <div className="box">
               <div className="img-box">
