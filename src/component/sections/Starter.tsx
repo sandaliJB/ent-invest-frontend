@@ -9,17 +9,19 @@ const Starter: React.FC = () => {
             <div className="col-md-6 ">
               <div className="detail-box">
                 <h1>
-                  Repair and <br />
-                  Maintenance <br />
-                  Services
+                  Find Investors, <br />
+                  Entrepreneurs and  <br />
+                  Get Funding
                 </h1>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
-                  harum voluptatem adipisci. Quos molestiae saepe dicta nobis
-                  pariatur, tempora iusto, ad possimus soluta hic praesentium
-                  mollitia consequatur beatae, aspernatur culpa.
+                The ultimate platform where Entrepreneurs meet Investors to turn dreams into reality. Whether you're an entrepreneur with a groundbreaking idea 
+                or an investor seeking promising opportunities, SeedLink bridges the gap and fosters collaboration.
+              
+                We also offer a unique feature for users to donate funds, supporting innovative projects and empowering change-makers.
+                At SeedLink, we believe in connecting visions, enabling growth, and creating a brighter future together.
+                
                 </p>
-                <a href="">Contact Us</a>
+                <a href="">Get Start</a>
               </div>
             </div>
             <div className="col-md-6">
