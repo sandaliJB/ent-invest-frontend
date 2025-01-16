@@ -9,12 +9,10 @@ const About: React.FC = () => {
             <div className="detail-box">
               <h2>About us</h2>
               <p>
-                There are many variations of passages of Lorem Ipsum available,
-                but the majority have suffered alteration in some form, by
-                injected humour, or randomisedThere are many variations of
-                passages of Lorem Ipsum available, but the majority have
-                suffered alteration in some form, by injected humour, or
-                randomised
+              At InvestConnect, our mission is to empower entrepreneurs to showcase their ideas, 
+              attract investments, and achieve success, while providing investors with unparalleled 
+              opportunities to discover and support the next big ventures. We aim to create a seamless 
+              ecosystem where connections thrive, and potential is unlocked.
               </p>
               <a href="">Read More</a>
             </div>

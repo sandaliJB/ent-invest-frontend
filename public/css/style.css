@@ -145,6 +145,13 @@ a:focus {
   color: #0355cc;
 }
 
+.nav-link:hover{
+  color: #ffffff;
+  background-color: rgb(65, 201, 88);
+  padding: 5px;
+  border-radius: 5px;
+}
+
 .custom_nav-container .form-inline .nav_search-btn {
   width: 35px;
   height: 35px;
@@ -152,6 +159,26 @@ a:focus {
   border: none;
   color: #000000;
 }
+
+.contact-link {
+  text-decoration: none;
+  transition: transform 0.2s ease, color 0.2s ease;
+  font-size: 1rem; /* Initial font size */
+}
+
+.contact-link:hover {
+  transform: scale(1.1); /* Slight enlargement */
+  color: #28a745; /* Ensure the text turns green */
+}
+
+.contact-link i {
+  transition: transform 0.2s ease;
+}
+
+.contact-link:hover i {
+  transform: scale(1.2); /* Slightly enlarge the icon too */
+}
+
 
 .custom_nav-container .form-inline .nav_search-btn:hover {
   color: #0355cc;
