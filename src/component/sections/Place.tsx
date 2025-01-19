@@ -37,7 +37,7 @@ const Place: React.FC = () => {
                 <div className="map">
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.6959373907916!2d79.92372117571445!3d6.926902018342607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25766a02febfd%3A0x5b68a0c35531ff9e!2sNational%20Institute%20of%20Mental%20Health!5e0!3m2!1sen!2slk!4v1736828990460!5m2!1sen!2slk"
-                    width="600"
+                    width="auto"
                     height="400px"
                     style={{ border: "0" }}
                     loading="lazy"
