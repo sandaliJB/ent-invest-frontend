@@ -13,7 +13,7 @@ const Starter: React.FC = () => {
                   Entrepreneurs and  <br />
                   Get Funding
                 </h1>
-                <p>
+                <p className="text-justify">
                 The ultimate platform where Entrepreneurs meet Investors to turn dreams into reality. Whether you're an entrepreneur with a groundbreaking idea 
                 or an investor seeking promising opportunities, SeedLink bridges the gap and fosters collaboration.
               
@@ -26,12 +26,13 @@ const Starter: React.FC = () => {
             </div>
             <div className="col-md-6 my-2 py-2">
               <div className="img-box">
-                <img src="images/invester1.jpg" alt="" />
+                <img src="images/1.avif" alt="" />
               </div>
             </div>
           </div>
         </div>
       </section>
+      <div className="my-5 p-5"></div>
       <section className="feature_section">
         <div className="container mt-3">
           <div className="feature_container">
@@ -54,9 +55,9 @@ const Starter: React.FC = () => {
                   </g>
                 </svg>
               </div>
-              <h5 className="name">Repair</h5>
+              <h5 className="name">Entrepreneurs</h5>
             </div>
-            <div className="box active">
+            <div className="box">
               <div className="img-box">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -72,7 +73,7 @@ const Starter: React.FC = () => {
                   </g>
                 </svg>
               </div>
-              <h5 className="name">Improve</h5>
+              <h5 className="name">Investors</h5>
             </div>
             <div className="box">
               <div className="img-box">
@@ -87,7 +88,7 @@ const Starter: React.FC = () => {
                   <path d="M46,31H42.422a1,1,0,0,1,0-2H46a1,1,0,0,0,.916-1.4A5.992,5.992,0,0,0,36.231,27h-8.04a5.992,5.992,0,0,0-10.685.6,1,1,0,0,0,.916,1.4H22a1,1,0,0,1,0,2H18.422a1,1,0,0,0-.916,1.4,5.992,5.992,0,0,0,10.685.6h8.04a5.992,5.992,0,0,0,10.685-.6A1,1,0,0,0,46,31Zm-4.578,3a4,4,0,0,1-3.662-2.4,1,1,0,0,0-.916-.6H27.578a1,1,0,0,0-.916.6,3.991,3.991,0,0,1-6.3,1.4H22a3,3,0,0,0,0-6H20.359a3.991,3.991,0,0,1,6.3,1.4,1,1,0,0,0,.916.6h9.266a1,1,0,0,0,.916-.6,3.991,3.991,0,0,1,6.3-1.4h-1.64a3,3,0,0,0,0,6h1.64A3.988,3.988,0,0,1,41.422,34Z" />
                 </svg>
               </div>
-              <h5 className="name">Maintain</h5>
+              <h5 className="name">Funds</h5>
             </div>
           </div>
         </div>

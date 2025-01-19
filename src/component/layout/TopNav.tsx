@@ -106,9 +106,9 @@ const TopNav: React.FC = () => {
                       Funds
                     </NavLink>
                   </li>
-                  <li className="nav-item">
+                  <li className="nav-item mx-2">
                     <a
-                      className="nav-link btn btn-warning btn-sm rounded text-dark font-weight-bold"
+                      className="nav-link btn btn-success btn-sm rounded text-dark font-weight-bold border-0"
                       href="/login"
                     >
                       Login

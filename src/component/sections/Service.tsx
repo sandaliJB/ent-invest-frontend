@@ -14,7 +14,7 @@ const Service: React.FC = () => {
                 <img src="images/s1.png" alt="" />
               </div>
               <div className="detail-box">
-                <h5>Maintenance</h5>
+                <h5>Entrepreneurship</h5>
                 <p>
                   when looking at its layout. The point of using Lorem Ipsum is
                   that it has a more-or-less normal
@@ -28,7 +28,7 @@ const Service: React.FC = () => {
                 <img src="images/s2.png" alt="" />
               </div>
               <div className="detail-box">
-                <h5>Electrical</h5>
+                <h5>Investment</h5>
                 <p>
                   when looking at its layout. The point of using Lorem Ipsum is
                   that it has a more-or-less normal
@@ -42,7 +42,7 @@ const Service: React.FC = () => {
                 <img src="images/s3.png" alt="" />
               </div>
               <div className="detail-box">
-                <h5>Plumbing</h5>
+                <h5>Donation</h5>
                 <p>
                   when looking at its layout. The point of using Lorem Ipsum is
                   that it has a more-or-less normal

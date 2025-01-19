@@ -52,7 +52,7 @@ const Contact: React.FC = () => {
           <h4>Follow Us</h4>
           <div className="box">
             <a href="">
-              <i className="fa fa-facebook" aria-hidden="true"></i>
+              <i className="fa-brands fa-facebook"></i>
             </a>
             <a href="">
               <i className="fa fa-twitter" aria-hidden="true"></i>
