@@ -4,8 +4,11 @@ import Footer from "../layout/Footer";
 
 const Login: React.FC = () => {
   return (
-    <div>
-      <TopNav />
+    <div className="hero_area">
+      <div style={{ backgroundColor: "#4747472c" }}>
+        <TopNav />
+      </div>
+
       <div className="d-flex align-items-center justify-content-center vh-100 bg-light">
         <div
           className="card shadow p-4"
