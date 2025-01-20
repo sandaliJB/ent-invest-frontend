@@ -1,207 +1,152 @@
-import React, { useState } from 'react';
-import TopNav from '../layout/TopNav';
-import Footer from '../layout/Footer';
+import React, { useState } from "react";
+import axios from "axios";
+import TopNav from "../layout/TopNav";
+import Footer from "../layout/Footer";
+import { useNavigate } from "react-router-dom";
 
 const SignUp: React.FC = () => {
-  const [userType, setUserType] = useState<string>('');
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    userEmail: "",
+    password: "",
+    confirmPassword: "",
+  });
 
-  // Function to render specific fields based on user type
-  const renderUserSpecificFields = () => {
-    if (userType === 'investor') {
-      return (
-        <>
-          <div className="mb-3">
-            <label htmlFor="investmentInterest" className="form-label">
-              Investment Interests
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="investmentInterest"
-              placeholder="e.g., Technology, Healthcare"
-              required
-            />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="portfolioSize" className="form-label">
-              Portfolio Size ($)
-            </label>
-            <input
-              type="number"
-              className="form-control"
-              id="portfolioSize"
-              placeholder="Enter your portfolio size"
-              required
-            />
-          </div>
-          {/* Common Fields */}
-          <div className="mb-3">
-              <label htmlFor="name" className="form-label">
-                Full Name
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="name"
-                placeholder="Enter your full name"
-                required
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="email" className="form-label">
-                Email Address
-              </label>
-              <input
-                type="email"
-                className="form-control"
-                id="email"
-                placeholder="Enter your email address"
-                required
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="password" className="form-label">
-                Password
-              </label>
-              <input
-                type="password"
-                className="form-control"
-                id="password"
-                placeholder="Enter your password"
-                required
-              />
-            </div>
-        </>
-      );
-    } else if (userType === 'entrepreneur') {
-      return (
-        <>
-          <div className="mb-3">
-            <label htmlFor="businessName" className="form-label">
-              Business Name
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="businessName"
-              placeholder="Enter your business name"
-              required
-            />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="businessIndustry" className="form-label">
-              Business Industry
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="businessIndustry"
-              placeholder="e.g., Technology, Retail"
-              required
-            />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="fundingAmount" className="form-label">
-              Funding Amount Needed ($)
-            </label>
-            <input
-              type="number"
-              className="form-control"
-              id="fundingAmount"
-              placeholder="Enter funding amount needed"
-              required
-            />
-          </div>
-          {/* Common Fields */}
-          <div className="mb-3">
-              <label htmlFor="name" className="form-label">
-                Full Name
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="name"
-                placeholder="Enter your full name"
-                required
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="email" className="form-label">
-                Email Address
-              </label>
-              <input
-                type="email"
-                className="form-control"
-                id="email"
-                placeholder="Enter your email address"
-                required
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="password" className="form-label">
-                Password
-              </label>
-              <input
-                type="password"
-                className="form-control"
-                id="password"
-                placeholder="Enter your password"
-                required
-              />
-            </div>
-        </>
-      );
+  const [error, setError] = useState<string | null>(null);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError(null);
+
+    if (formData.password !== formData.confirmPassword) {
+      setError("Passwords do not match.");
+      return;
+    }
+
+    try {
+      const response = await axios.post("http://localhost:8080/api/user/signup", {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        userEmail: formData.userEmail,
+        password: formData.password,
+      });
+
+      setError(response.data);
+      navigate("/login");
+    } catch (err) {
+      setError((err as any).response?.data || "An error occurred during registration.");
     }
   };
 
   return (
     <div>
-        <TopNav />
-        <div className="d-flex align-items-center justify-content-center vh-100 bg-light">
-      <div className="card shadow p-4" style={{ width: '500px', borderRadius: '10px' }}>
-        <div className="card-body">
-          <h3 className="card-title text-center mb-4">Sign Up</h3>
-          <form>
-            {/* User Type Selection */}
-            <div className="mb-3">
-              <label htmlFor="userType" className="form-label">
-                Select User Type
-              </label>
-              <select
-                className="form-control"
-                id="userType"
-                value={userType}
-                onChange={(e) => setUserType(e.target.value)}
-                required
+      <TopNav />
+      <div className="d-flex align-items-center justify-content-center vh-100 bg-light">
+        <div className="card shadow p-4" style={{ width: "500px", borderRadius: "10px" }}>
+          <div className="card-body">
+            <h3 className="card-title text-center mb-4">Sign Up</h3>
+            {error && <div className="alert alert-danger">{error}</div>}
+            <form onSubmit={handleSubmit}>
+              <div className="mb-3">
+                <label htmlFor="firstName" className="form-label">
+                  First Name
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="firstName"
+                  name="firstName"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                  placeholder="Enter your first name"
+                  required
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="lastName" className="form-label">
+                  Last Name
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="lastName"
+                  name="lastName"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  placeholder="Enter your last name"
+                  required
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="userEmail" className="form-label">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  className="form-control"
+                  id="userEmail"
+                  name="userEmail"
+                  value={formData.userEmail}
+                  onChange={handleChange}
+                  placeholder="Enter your email address"
+                  required
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="password" className="form-label">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  className="form-control"
+                  id="password"
+                  name="password"
+                  value={formData.password}
+                  onChange={handleChange}
+                  placeholder="Enter your password"
+                  required
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="confirmPassword" className="form-label">
+                  Confirm Password
+                </label>
+                <input
+                  type="password"
+                  className="form-control"
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  value={formData.confirmPassword}
+                  onChange={handleChange}
+                  placeholder="Confirm your password"
+                  required
+                />
+              </div>
+              <button
+                type="submit"
+                className="btn btn-primary w-100 mt-3"
+                style={{ borderRadius: "25px" }}
               >
-                <option value="">-- Select Option --</option>
-                <option value="investor">Investor</option>
-                <option value="entrepreneur">Entrepreneur</option>
-              </select>
+                Sign Up
+              </button>
+            </form>
+            <div className="mt-3 text-center">
+              <span>Already have an account? </span>
+              <a href="/login" className="text-decoration-none">
+                Login
+              </a>
             </div>
-
-            {/* User-Specific Fields */}
-            {renderUserSpecificFields()}
-
-            {/* Submit Button */}
-            <button
-              type="submit"
-              className="btn btn-primary w-100 mt-3"
-              style={{ borderRadius: '25px' }}
-            >
-              Sign Up
-            </button>
-          </form>
-
-          {/* Additional Links */}
-          <div className="mt-3 text-center">
-            <span>Already have an account? </span>
-            <a href="/login" className="text-decoration-none">Login</a>
           </div>
         </div>
       </div>
-    </div>
-    <Footer />  
+      <Footer />
     </div>
   );
 };
