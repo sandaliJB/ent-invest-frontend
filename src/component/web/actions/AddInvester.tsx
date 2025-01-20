@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
 const AddInvestor: React.FC = () => {
+  const userId = useParams<{ userId: string }>().userId;
   const [formData, setFormData] = useState({
+    userId:"",
     investorName: "",
     investorJob: "",
     investorInterest: "",
@@ -34,6 +37,7 @@ const AddInvestor: React.FC = () => {
 
     const data = new FormData();
     data.append("investment", JSON.stringify({
+      userId: userId,
       investorName: formData.investorName,
       investorJob: formData.investorJob,
       investorInterest: formData.investorInterest,
@@ -101,28 +105,26 @@ const AddInvestor: React.FC = () => {
           <label htmlFor="investorInterest" className="form-label">
             Investor Interest
           </label>
-          <textarea
+          <input
             className="form-control"
             id="investorInterest"
             name="investorInterest"
             value={formData.investorInterest}
             onChange={handleChange}
-            rows={3}
             required
-          ></textarea>
+          />
         </div>
         <div className="mb-3">
           <label htmlFor="otherDetails" className="form-label">
             Other Details
           </label>
-          <textarea
+          <input
             className="form-control"
             id="otherDetails"
             name="otherDetails"
             value={formData.otherDetails}
             onChange={handleChange}
-            rows={3}
-          ></textarea>
+          />
         </div>
         <div className="mb-3">
           <label htmlFor="budgetLimit" className="form-label">
@@ -142,15 +144,14 @@ const AddInvestor: React.FC = () => {
           <label htmlFor="address" className="form-label">
             Address
           </label>
-          <textarea
+          <input
             className="form-control"
             id="address"
             name="address"
             value={formData.address}
             onChange={handleChange}
-            rows={3}
             required
-          ></textarea>
+          />
         </div>
         <div className="mb-3">
           <label htmlFor="telNumber" className="form-label">

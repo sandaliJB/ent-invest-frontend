@@ -37,16 +37,20 @@ const SignUp: React.FC = () => {
         userEmail: formData.userEmail,
         password: formData.password,
       });
-
-      setError(response.data);
-      navigate("/login");
+      if (response.data == "User already registered as a user") {
+        setError(response.data);
+      }else{
+        navigate(`/addInvester/${response.data}`);
+      }
+      
+      
     } catch (err) {
       setError((err as any).response?.data || "An error occurred during registration.");
     }
   };
 
   return (
-    <div>
+    <div className="hero_area">
       <TopNav />
       <div className="d-flex align-items-center justify-content-center vh-100 bg-light">
         <div className="card shadow p-4" style={{ width: "500px", borderRadius: "10px" }}>
