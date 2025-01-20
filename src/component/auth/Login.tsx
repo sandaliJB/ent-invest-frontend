@@ -1,8 +1,13 @@
 import React from "react";
 import TopNav from "../layout/TopNav";
 import Footer from "../layout/Footer";
+import { useNavigate } from "react-router-dom";
 
 const Login: React.FC = () => {
+  const navigate = useNavigate();
+  const handleNavigate = () => {
+    navigate("/addInvester");
+  }
   return (
     <div className="hero_area">
       <div style={{ backgroundColor: "#4747472c" }}>
@@ -62,6 +67,7 @@ const Login: React.FC = () => {
                 type="submit"
                 className="btn btn-primary w-100"
                 style={{ borderRadius: "25px" }}
+                onClick={handleNavigate}
               >
                 Login
               </button>

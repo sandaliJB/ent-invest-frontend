@@ -8,6 +8,7 @@ import EntpProfile from './component/web/EntpProfile';
 import Invester from './component/web/Invester';
 import InvestProfile from './component/web/InvestProfile';
 import Funds from './component/web/Funds';
+import AddInvester from './component/web/actions/AddInvester';
 
 function App() {
 
@@ -21,8 +22,9 @@ function App() {
           <Route path="/entrepreneur" element={<Entp />} />
           <Route path="/profile" element={<EntpProfile />} />
           <Route path="/invester" element={<Invester />} />
-          <Route path="/investProfile" element={<InvestProfile />} />
+          <Route path="/investProfile/:investmentId" element={<InvestProfile />} />
           <Route path="/funds" element={<Funds />} />
+          <Route path="/addInvester" element={<AddInvester />} />
         </Routes>
       </Router>
     </div>
