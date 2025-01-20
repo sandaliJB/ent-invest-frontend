@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import Footer from "../layout/Footer";
 import TopNav from "../layout/TopNav";
 
 const InvestProfile: React.FC = () => {
-  const { investmentId } = useParams<{ investmentId: string }>();
+  const { userId } = useParams<{ userId: string }>();
   const [investment, setInvestment] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchInvestment = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/api/investment/getInvestmentByInvestmentId/${investmentId}`);
+        const response = await axios.get(`http://localhost:8080/api/investment/getInvestmentByUserId/${userId}`);
         setInvestment(response.data);
       } catch (err) {
         console.error("Error fetching investment", err);
@@ -21,7 +21,7 @@ const InvestProfile: React.FC = () => {
     };
 
     fetchInvestment();
-  }, [investmentId]);
+  }, [userId]);
 
   if (error) {
     return <div className="alert alert-danger">{error}</div>;
@@ -62,16 +62,38 @@ const InvestProfile: React.FC = () => {
                         <small className="text-primary">
                           <b>{investment.investorJob}</b>
                         </small>
-                        <div className="text-primary my-2">
-                          <i className="fa-solid fa-pen-to-square"></i>
-                          <span className="mx-2">Edit My Profile</span>
+                        <div>
+                        {userId !== investment.userId ? (
+                          <div className="text-primary my-2">
                         </div>
+                      ) : (
+                        <div className="text-primary my-2">
+                            <Link to={""}>
+                            <i className="fa-solid fa-pen-to-square"></i>
+                            <span className="mx-2">Edit My Profile</span></Link>
+                          </div>
+                      )}
+                        </div>
+
+                        
+
                       </div>
                     </div>
                   </div>
-                  <div className="my-5">
-                    <button className="btn btn-primary mt-4">Invest in me</button>
+
+                  <div>
+                      {userId !== investment.userId ? (
+                          <div className="text-primary my-2">
+                            <button className="btn btn-primary mt-4">Invest in me</button>
+                          </div>
+                      ) : (
+                        <div className="my-5">
                   </div>
+                      )}
+                     </div>
+
+
+                  
                 </div>
               </div>
             </div>
@@ -93,6 +115,7 @@ const InvestProfile: React.FC = () => {
                       <p><strong>Address:</strong> {investment.address}</p>
                       <p><strong>Interest:</strong> {investment.investorInterest}</p>
                       <p><strong>Other Details:</strong> {investment.otherDetails}</p>
+                      <p>ID: {investment.userId}</p>
                     </div>
                   </div>
                 </div>

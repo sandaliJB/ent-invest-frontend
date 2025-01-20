@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const AddInvestor: React.FC = () => {
   const userId = useParams<{ userId: string }>().userId;
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     userId:"",
     investorName: "",
@@ -61,7 +62,7 @@ const AddInvestor: React.FC = () => {
           },
         }
       );
-      alert("Investor data submitted successfully!");
+      navigate("/login");
       console.log(response.data);
     } catch (error) {
       console.error("Error submitting data", error);

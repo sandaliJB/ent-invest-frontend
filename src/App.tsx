@@ -22,7 +22,7 @@ function App() {
           <Route path="/entrepreneur" element={<Entp />} />
           <Route path="/profile" element={<EntpProfile />} />
           <Route path="/invester" element={<Invester />} />
-          <Route path="/investProfile/:investmentId" element={<InvestProfile />} />
+          <Route path="/investProfile/:userId" element={<InvestProfile />} />
           <Route path="/funds" element={<Funds />} />
           <Route path="/addInvester/:userId" element={<AddInvester />} />
         </Routes>

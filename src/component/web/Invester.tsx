@@ -7,13 +7,14 @@ import { Link } from "react-router-dom";
 const Invester: React.FC = () => {
   const [investors, setInvestors] = useState<any[]>([]);
   const [error, setError] = useState<string | null>(null);
+  const userId = sessionStorage.getItem("userId");
 
   useEffect(() => {
     const fetchInvestors = async () => {
       try {
         const response = await axios.get("http://localhost:8080/api/investment/getAllInvestors");
         setInvestors(response.data);
-        //console.log(response.data);
+
       } catch (err) {
         console.error("Error fetching investors", err);
         setError("Failed to fetch investors.");
@@ -54,19 +55,16 @@ const Invester: React.FC = () => {
                       {ivt.budgetLimit}
                     </p>
                     <div className="mt-auto">
-                      <a
-                        className="btn btn-primary me-2"
-                        style={{ borderRadius: "20px" }}
-                      >
-                        Contact
-                      </a>
-                      <Link
-                        to={`/investProfile/${ivt.investmentId}`}
-                        className="btn btn-outline-primary mx-2"
-                        style={{ borderRadius: "20px" }}
-                      >
-                        View Profile
-                      </Link>
+                      {userId !== ivt.userId ? (
+                        <Link to={`/investProfile/${ivt.userId}`} className="btn btn-outline-primary mx-2" style={{ borderRadius: "20px" }} > View Profile </Link>
+                      ) : (
+                        <div className="d-flex">
+                            <Link className="btn btn-primary me-2" style={{ borderRadius: "20px" }} to={""}>  Contact </Link>
+                            <Link to={`/investProfile/${ivt.userId}`} className="btn btn-outline-primary mx-2" style={{ borderRadius: "20px" }} > View Profile</Link>
+                            {userId}{ivt.userId}
+                        </div>
+                      )}
+                      
                     </div>
                   </div>
                 </div>

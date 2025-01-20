@@ -26,6 +26,7 @@ const handleLogout = async () => {
       sessionStorage.removeItem("authToken");
       sessionStorage.removeItem("userEmail");
       sessionStorage.removeItem("userRole");
+      sessionStorage.removeItem("userId");
       navigate('/login');
     }
   } catch (error) {

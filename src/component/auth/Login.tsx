@@ -25,14 +25,15 @@ const Login: React.FC = () => {
 
     try {
       const response = await axios.post("http://localhost:8080/api/user/signing", formData);
-      const { token, userEmail, userRole } = response.data;
-
-      sessionStorage.setItem("authToken", token);
-      sessionStorage.setItem("userEmail", userEmail);
-      sessionStorage.setItem("userRole", userRole);
-
-      // Redirect to another page
-      navigate("/");
+      if (response.data) {
+        sessionStorage.setItem("authToken", response.data.token);
+        sessionStorage.setItem("userEmail", response.data.userEmail);
+        sessionStorage.setItem("userRole", response.data.userRole);
+        sessionStorage.setItem("userId", response.data.userId);
+        navigate("/");
+      } else {
+        setError("Invalid response from server. Please try again.");
+      }
     } catch (err) {
       if (axios.isAxiosError(err) && err.response) {
         setError(err.response.data || "Invalid email or password. Please try again.");
@@ -41,6 +42,7 @@ const Login: React.FC = () => {
       }
     }
   };
+    
 
   return (
     <div className="hero_area">
