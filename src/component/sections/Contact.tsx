@@ -55,13 +55,13 @@ const Contact: React.FC = () => {
               <i className="fa-brands fa-facebook"></i>
             </a>
             <a href="">
-              <i className="fa fa-twitter" aria-hidden="true"></i>
+              <i className="fa-brands fa fa-twitter"></i>
             </a>
             <a href="">
-              <i className="fa fa-youtube" aria-hidden="true"></i>
+              <i className="fa-brands fa fa-youtube"></i>
             </a>
             <a href="">
-              <i className="fa fa-instagram" aria-hidden="true"></i>
+              <i className="fa-brands fa fa-instagram"></i>
             </a>
           </div>
         </div>
