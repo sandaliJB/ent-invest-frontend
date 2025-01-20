@@ -1,7 +1,38 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import { logout } from "../../services/AuthService";
 
 const TopNav: React.FC = () => {
+  const [className, setClassName] = useState('');
+  const [signed, setSigned] = useState('');
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const user = sessionStorage.getItem('userEmail');
+    if (user) {
+        setClassName('d-block nav-item mx-2');
+        setSigned('d-none nav-item mx-2');
+        //console.log(user);
+    } else {
+        setSigned('d-blcok nav-item mx-2');
+        setClassName('d-none nav-item mx-2');
+    }
+}, [navigate]);
+
+const handleLogout = async () => {
+  try {
+    const response = await logout();
+    if (response) {
+      sessionStorage.removeItem("authToken");
+      sessionStorage.removeItem("userEmail");
+      sessionStorage.removeItem("userRole");
+      navigate('/login');
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};
+
   return (
     <div style={{backgroundColor: "#4747472c"}}>
       <header className="header_section">
@@ -106,13 +137,12 @@ const TopNav: React.FC = () => {
                       Funds
                     </NavLink>
                   </li>
-                  <li className="nav-item mx-2">
-                    <a
-                      className="nav-link btn btn-success btn-sm rounded text-dark font-weight-bold border-0"
-                      href="/login"
-                    >
-                      Login
-                    </a>
+                  <li className={signed}>
+                    <a className="nav-link btn btn-success btn-sm rounded text-white font-weight-bold border-0" href="/login" > Login </a>
+                    
+                  </li>
+                  <li className={className}>
+                    <a className="nav-link btn btn-success btn-sm rounded text-white font-weight-bold border-0" onClick={handleLogout} > Logout </a>
                   </li>
                 </ul>
               </div>

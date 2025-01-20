@@ -25,11 +25,11 @@ const Login: React.FC = () => {
 
     try {
       const response = await axios.post("http://localhost:8080/api/user/signing", formData);
-      const token = response.data;
-      console.log(token);
+      const { token, userEmail, userRole } = response.data;
 
-      // Store the token in localStorage or sessionStorage
-      localStorage.setItem("authToken", token);
+      sessionStorage.setItem("authToken", token);
+      sessionStorage.setItem("userEmail", userEmail);
+      sessionStorage.setItem("userRole", userRole);
 
       // Redirect to another page
       navigate("/");
